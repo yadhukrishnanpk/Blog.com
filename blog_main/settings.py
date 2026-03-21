@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blogs',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,7 @@ STATICFILES_DIRS = [
 # This is where Django COLLECTS files for production (must be a different folder name)
 # Usually, we just call this 'staticfiles'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+MEDIA_URL='/media/'
+MEDIA_ROOT= BASE_DIR /'media'
