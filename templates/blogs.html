@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+
+{% block  content %}
+
+
+<div class="row" style="display: flex; flex-wrap: wrap; padding: 20px; background-color: #ffffff;">
+  
+  <div class="leftcolumn" style="flex: 75%; padding-right: 20px; box-sizing: border-box;">
+    
+    <div class="card" style="background-color: white; padding: 20px; margin-top: 20px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <h2 style="margin-top: 0;">{{ single_blog.title }}</h2>
+      <h5 style="color: dark;">{{ single_blog.created_at|timesince }} ago </h5>
+      <div class="fakeimg" style="background : url({{ single_blog.featured_image.url }}); background-repeat: no-repeat; background-size: cover; background-position: center; width: 100%; height: 300px; display: flex; align-items: center; justify-content: center; color: white;"> </div>
+      <p class="text-primary">{{ single_blog.category }}</p>
+      <p>{{ single_blog.title }}</p>
+      <p>{{ single_blog.blogg_body }}</p>
+    </div>
+    
+  </div>
+
+  <div class="rightcolumn" style="flex: 25%; box-sizing: border-box;">
+    
+    <div class="card" style="background-color: white; padding: 20px; margin-top: 20px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <h2 style="margin-top: 0;">Categories</h2>
+        {% for cat in categories %}
+      <li style="list-style: none;"><a href="{% url 'posts_by_category' cat.id %}" style="text-decoration: none; color: inherit;" onmouseover="this.style.color='blue';" onmouseout="this.style.color='black';">{{ cat.category_name}}</a></li>
+      {% endfor %}
+    </div>
+
+    <div class="card" style="background-color: white; padding: 20px; margin-top: 20px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <h3 style="margin-top: 0;">About</h3>
+      <div class="fakeimg" style="background : url({{ single_blog.featured_image.url }}); background-repeat: no-repeat; background-size: cover; background-position: center;; width: 100%; height: 60px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; color: white;"></div>
+      <h4 style="margin-top: 0;">TITLE: {{ single_blog.title }}</h4>
+      <h5 style="margin-top: 0;">DATE : {{ single_blog.created_at |date:"M d, Y" }}</h5>
+      <h5 style="color: dark;">AUTHOR: {{ single_blog.author }}</h5>
+    </div>
+</div>
+
+
+    {% if social_links %}
+<section style="display: grid; align-items: center; justify-content: center; max-width: 600px; background-color: #ffffff; border: 1px solid #e1e8ed; border-radius: 50px; padding: 12px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin: 20px auto;">
+    <h5 style="text-align:center; color:blue">Social Links</h5>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 25px; flex-wrap: wrap;">
+        {% for i in social_links %}
+        <div style="font-weight: 700; font-size: 1rem;">
+            <a href="{{ i.link }}" target="_black"
+               style="text-decoration: none; color: #111b21; transition: color 0.2s ease;" 
+               onmouseover="this.style.color='#007bff';" 
+               onmouseout="this.style.color='#111b21';">
+               {{ i.platform }}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+{% endif %}
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}  

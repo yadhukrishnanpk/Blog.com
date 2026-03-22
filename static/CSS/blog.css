@@ -14,6 +14,7 @@ body {
     font-family: var(--serif-font);
     font-size: 2.5rem;
     font-weight: 700;
+    
 }
 
 /* --- Navigation --- */
@@ -101,4 +102,5 @@ body {
 }
 .category_details{
     margin-left: 20rem;
+    
 }
