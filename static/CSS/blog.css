@@ -4,13 +4,15 @@
 }
 
 body {
-    background-color: #9da0a3; /* Light grey background for a modern feel */
+    background-color: rgba(255, 255, 255, 0.853) !important; 
+    
     font-family: var(--primary-font);
     color: #333;
 }
 
 
 .blog-header-logo {
+    
     font-family: var(--serif-font);
     font-size: 2.5rem;
     font-weight: 700;
@@ -36,6 +38,7 @@ body {
     display: flex;
     align-items: center;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  
 }
 .row{
     padding-top:20px;
@@ -101,6 +104,6 @@ body {
     }
 }
 .category_details{
-    margin-left: 20rem;
-    
+    margin-left: 20rem; 
 }
+

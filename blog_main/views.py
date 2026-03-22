@@ -5,7 +5,7 @@ from assignments.models import About
 
 def home(request):
     categories= Category.objects.all()
-    featured_posts = Blog.objects.filter(is_featured=True, status='Published').order_by('updated_at')
+    featured_posts = Blog.objects.filter(is_featured=True, status='Published').order_by('-updated_at')
     posts =Blog.objects.filter(is_featured=False, status='Published')
     try:
         about = About.objects.get()

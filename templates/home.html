@@ -7,9 +7,9 @@
     <main class="container">
         <div class="hero-section text-center" style="background-image: url({{ post.featured_image.url}});">
             <div class="col-lg-8 mx-auto">
-                <span class="badge bg-primary mb-3">{{ post.title}}</span>
-                <h1 class="display-4 italic">{{ post.short_discription}}</h1>
-                <p class="lead mb-4">{{ post.blogg_body}}</p>
+                <span class="badge mb-3"  style=" background-color:rgba(0, 0, 0, 0.16); font-size: 2rm;">{{ post.title}}</span>
+                <h1 class="display-4 italic  text-white p-3" style=" background-color:rgba(0, 0, 0, 0.16); border-radius: 30px;">{{ post.short_discription}}</h1>
+                <p class="lead mb-4 text-white" style=" background-color:rgba(4, 4, 4, 0.16); border-radius: 20px">{{ post.blogg_body |truncatechars:150}}</p>
                 <a href="{% url 'blogs' post.slug %}" class="btn btn-light btn-lg rounded-pill fw-bold">Read Article</a>
             </div>
         </div>
@@ -75,7 +75,7 @@
     <p class="text-muted">No recent posts found.</p>
     {% endfor %}
 </div>
-<section style="padding: 40px; background-color: #f4f4f4; border: 1px solid #ddd; border-radius: 8px; font-family: sans-serif; max-width: 800px; margin: 20px auto; text-align: center;">
+<section style="padding: 40px; background-color:  #ffffff; border: 1px solid #ddd; border-radius: 8px; font-family: sans-serif; max-width: 800px; margin: 20px auto; text-align: center;">
     <h2 style="color: #333; margin-bottom: 15px;">{{ about.about_heading}}</h2>
     <p style="color: #666; line-height: 1.6;">
         {{ about.about_description}}
