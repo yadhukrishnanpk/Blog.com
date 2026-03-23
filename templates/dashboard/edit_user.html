@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row" style="margin: 0;" >
+
+
+     {% include 'dashboard/sidebar.html'%}
+
+    <div class="col-md-9" style="background-color: #ffffff; padding: 30px;">
+        {% if perms.auth.view_user %}
+        <h5 style="color: #333; margin: 0; border-left: 3px solid #9c9c9c; padding:2px;">EDIT USER</h5><BR>
+
+
+           <form action="" method="POST">
+        {% csrf_token %}
+        
+        <div style="margin-bottom: 15px;">
+            {{form | crispy }}
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width: 100%; ">SUBMIT</button>
+    </form>
+    {% else %}
+    <h1 class="text-center text-danger">Permission Denied</h1>
+    {% endif %}
+    </div>
+</div>
+
+{% endblock %}

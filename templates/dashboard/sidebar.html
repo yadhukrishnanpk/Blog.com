@@ -18,6 +18,18 @@
           {% endif %}">
     DASHBOARD
 </a>
+{% if perms.auth.view_user%}
+ <a href="{% url 'users' %}" 
+   class="nav-link" 
+   style="padding: 12px 20px; transition: 0.3s; 
+          {% if '/users/' in request.path %} 
+              background-color: #d4d4d4ad; color: #000000; 
+          {% else %} 
+              background-color: transparent; color: #000000; 
+          {% endif %}">
+    USER
+</a>
+{% endif %}
            <a href="{% url 'categories' %}" 
    class="nav-link" 
    style="padding: 12px 20px; transition: 0.3s; 
