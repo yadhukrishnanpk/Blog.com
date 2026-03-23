@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row" style="margin: 0;" >
+
+
+     {% include 'dashboard/sidebar.html'%}
+
+    <div class="col-md-9" style="background-color: #ffffff; padding: 30px;">
+        <h3 style="color: #333; margin: 0; border-left: 3px solid #9c9c9c; padding:2px;">ADD NEW CATEGORY</h3><BR>
+
+
+           <form action="{% url 'add_category' %}" method="POST" style="display: flex; flex-direction: column; margin:auto; width: 400px; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+        {% csrf_token %}
+        
+        <div style="margin-bottom: 15px;">
+            {{form | crispy }}
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width: 100%; ">SUBMIT</button>
+    </form>
+        
+    </div>
+</div>
+
+{% endblock %}
