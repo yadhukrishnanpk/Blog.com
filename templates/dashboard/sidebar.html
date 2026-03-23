@@ -28,7 +28,16 @@
           {% endif %}">
     CATEGORIES
 </a>
-            <a href="#" class="nav-link" style="color: #010101; padding: 12px 20px; transition: 0.3s;">BLOGS</a>
+          <a href="{% url 'posts' %}" 
+   class="nav-link" 
+   style="padding: 12px 20px; transition: 0.3s; 
+          {% if '/posts/' in request.path %} 
+              background-color:  #d4d4d4ad; color: #000000;
+          {% else %} 
+              background-color: transparent; color: #000000; 
+          {% endif %}">
+    POSTS
+</a>
             <a href="#" class="nav-link" style="color: #e74c3c; padding: 12px 20px; transition: 0.3s; margin-top: 50px;">LOGOUT</a>
         </div>
     </div>
