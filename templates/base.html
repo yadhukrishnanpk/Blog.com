@@ -29,9 +29,15 @@
                            <i class="fa fa-search"></i>
                         </button>
                     </form>
-
-                    <a class="btn btn btn-sm px-3 rounded-pill" href="#">Signup</a>
-                    <a class="btn btn  btn-sm px-3 rounded-pill" href="#">Login</a>
+                    {% if not user.is_authenticated %}
+                    <a class="btn btn btn-sm px-3 rounded-pill" href="{% url 'register' %}">Register</a>
+                    <a class="btn btn  btn-sm px-3 rounded-pill" href="{% url 'login' %}">Login</a>
+                    {% else %}
+                    <a class="btn btn  btn-sm px-3 rounded-pill" href="{% url 'logout' %}">LOGOUT</a>
+                    &emsp;
+                    <a class="btn text-success btn-sm rounded-pill fw-bold" href="">{{ user }} Active </a>
+                    &emsp;
+                    {% endif %}
                 </div>
             </div>
             </div>
@@ -61,7 +67,7 @@
 <!-- footer-->
   <footer class=" bg-white text-center">
         <p class="text-muted">© 2026 Blog.com. Built with Yadhu.</p>
-        <p class="mb-0" ><a href="#" class="link-primary" style="text-decoration: none;">BACK TO TOP</a></p>
+        
     </footer>
 
     </body>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+ <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height:25vh;">
+    
+    <h3 class="text-center" style="margin-bottom: 20px;">LOGIN</h3>
+    
+    <form action="{% url 'login' %}" method="POST" style="display: flex; flex-direction: column; margin:auto; width: 400px; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+        {% csrf_token %}
+        
+        <div style="margin-bottom: 15px;">
+            {{ form | crispy }}
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width: 100%;">SUBMIT</button>
+    </form>
+
+</div>
+{% endblock %}
